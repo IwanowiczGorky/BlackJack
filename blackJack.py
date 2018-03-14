@@ -43,6 +43,7 @@ class Hand:
     """
     A class used to create the player's / dealer's actions in the game.
     """
+    
     def __init__(self):
         self.cards = []  # start with an empty list as we did in the Deck class
         self.value = 0  # start with zero value
@@ -64,6 +65,7 @@ class Chips:
     """
     A class used to store the player's account balance.
     """
+    
     def __init__(self):
         self.total = 100  # This can be set to a default value or supplied by a user input
         self.bet = 0
@@ -81,6 +83,7 @@ def take_bet(chips):
     :param chips: Balance of player's account.
     :return:
     """
+    
     while True:
 
         try:
@@ -104,6 +107,7 @@ def hit(deck, hand):
     :param hand:
     :return:
     """
+    
     hand.add_card(deck.deal())
     hand.adjust_for_ace()
 
@@ -115,6 +119,7 @@ def hit_or_stand(deck, hand):
     :param hand: - Hand of player.
     :return:
     """
+    
     global playing  # to control an upcoming while loop
 
     while True:
@@ -145,6 +150,7 @@ def show_some(player, dealer):
     :param dealer: Hand of dealer.
     :return:
     """
+    
     print("\nDealer's Hand:")
     print(" <Card Hidden>")
     print('', dealer.cards[1])
@@ -158,6 +164,7 @@ def show_all(player, dealer):
     :param dealer: Hand of dealer.
     :return:
     """
+    
     print("\nDealer's Hand:", *dealer.cards, sep='\n ')
     print("\nDealer's Hand =", dealer.value)
     print("\nPlayer's Hand:", *player.cards, sep='\n ')
@@ -170,6 +177,7 @@ def player_busts(chips):
     :param chips: - Balance of player account.
     :return:
     """
+    
     print('Player busts!')
     chips.lose_bet()
 
@@ -180,6 +188,7 @@ def player_wins(chips):
     :param chips: - Balance of player account.
     :return:
     """
+    
     print('Player wins!')
     chips.win_bet()
 
@@ -190,6 +199,7 @@ def dealer_busts(chips):
     :param chips: - Balance of player account.
     :return:
     """
+    
     print('Dealer busts!')
     chips.win_bet()
 
@@ -200,6 +210,7 @@ def dealer_wins(chips):
     :param chips: - Balance of player account.
     :return:
     """
+    
     print('Dealer wins!')
     chips.lose_bet()
 
